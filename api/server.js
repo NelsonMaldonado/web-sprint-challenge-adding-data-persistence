@@ -1,9 +1,8 @@
 // build your server here and require it from index.js
-const express =  require('express')
+const express = require("express")
 const server = express()
+const routerProject = require("./project/router")
+server.use(express.json())
+server.use("/api/projects", routerProject)
 
-server.get('/',(req,res)=>{
-res.status(200).send('first endpoint working')
-})
-
-module.exports =  server
+module.exports = server
