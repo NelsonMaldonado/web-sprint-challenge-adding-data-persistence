@@ -4,11 +4,11 @@ const getAll = () => {
   db("resources")
 }
 
-const insert = () => {
+const insert = async (resource) => {
   let resource_id
   await db("resources")
     .insert(resource)
-    .then((id) => (resource_id = id))
+    .then(([id]) => (resource_id = id))
   return db("resources").where({ resource_id }).first()
 }
 
